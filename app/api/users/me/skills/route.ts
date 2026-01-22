@@ -29,7 +29,7 @@ export async function GET() {
 
     const skills = data?.map(item => ({
       id: item.skill_id,
-      name: item.skills?.name,
+      name: item.skills?.[0].name,
       level: item.level
     })) || []
 
@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       skill: {
         id: data.skill_id,
-        name: data.skills?.name,
+        name: data.skills?.[0].name,
         level: data.level
       }
     }, { status: 201 })
@@ -154,7 +154,7 @@ export async function PUT(request: NextRequest) {
     return NextResponse.json({
       skill: {
         id: data.skill_id,
-        name: data.skills?.name,
+        name: data.skills?.[0].name,
         level: data.level
       }
     })
