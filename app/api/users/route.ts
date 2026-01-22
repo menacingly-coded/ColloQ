@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
     // Filter by skill on the client side if specified
     if (skill) {
       users = users.filter(user =>
-        user.skills.some((s: any) => s.name?.toLowerCase().includes(skill.toLowerCase()))
+        user.skills.some((s: any) => s.name && s.name.toLowerCase().includes(skill.toLowerCase()))
       )
     }
 
